@@ -76,7 +76,8 @@ export const asyncRoutes = [
   {
     path: '/permission',
     component: 'layout/Layout',
-    redirect: '/permission/index',
+    // redirect: '/permission/index',
+    redirect: 'noRedirect',
     alwaysShow: true,
     meta: {
       title: 'permission',

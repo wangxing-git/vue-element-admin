@@ -14,7 +14,7 @@
         </div>
         <div class="bullshit__headline">{{ message }}</div>
         <div class="bullshit__info">Please check that the URL you entered is correct, or click the button below to return to the homepage.</div>
-        <a href="" class="bullshit__return-home">Back to home</a>
+        <router-link to="/" class="bullshit__return-home">Back to home</router-link>
       </div>
     </div>
   </div>
@@ -24,10 +24,16 @@
 
 export default {
   name: 'Page404',
+  data() {
+    return {
+    }
+  },
   computed: {
     message() {
       return 'The webmaster said that you can not enter this page...'
     }
+  },
+  methods: {
   }
 }
 </script>
