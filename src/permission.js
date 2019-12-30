@@ -1,4 +1,4 @@
-import router from './router'
+import router, { constantRoutes } from './router'
 import store from './store'
 import { Message } from 'element-ui'
 import NProgress from 'nprogress' // progress bar
@@ -29,7 +29,28 @@ router.beforeEach(async(to, from, next) => {
       // determine whether the user has obtained his permission roles through getInfo
       const hasRoles = store.getters.roles && store.getters.roles.length > 0
       if (hasRoles) {
-        next()
+        const permissionRoutes = [...constantRoutes, ...await store.dispatch('permission/generateRoutes', store.getters.roles)]
+        let hasPermission = false
+        for (var i = 0; i < permissionRoutes.length; i++) {
+          if (to.path === permissionRoutes[i].path) {
+            hasPermission = true
+            break
+          } else if (to.path.startsWith(permissionRoutes[i].path)) {
+            for (var j = 0; j < permissionRoutes[i].children.length; j++) {
+              const prefix = permissionRoutes[i].path === '/' ? '' : permissionRoutes[i].path
+              if (to.path === `${prefix}/${permissionRoutes[i].children[j].path}`) {
+                hasPermission = true
+                break
+              }
+            }
+          }
+        }
+        if (hasPermission) {
+          next()
+        } else {
+          next({ path: '/401' })
+        }
+        NProgress.done()
       } else {
         try {
           // get user info
@@ -37,10 +58,11 @@ router.beforeEach(async(to, from, next) => {
           const { roles } = await store.dispatch('user/getInfo')
 
           // generate accessible routes map based on roles
-          const accessRoutes = await store.dispatch('permission/generateRoutes', roles)
+          // const accessRoutes = await store.dispatch('permission/generateRoutes', roles)
+          await store.dispatch('permission/generateRoutes', roles)
 
           // dynamically add accessible routes
-          router.addRoutes(accessRoutes)
+          // router.addRoutes(accessRoutes)
 
           // hack method to ensure that addRoutes is complete
           // set the replace: true, so the navigation will not leave a history record

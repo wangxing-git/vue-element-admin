@@ -171,5 +171,14 @@ export default {
     tagsView: '开启 Tags-View',
     fixedHeader: '固定 Header',
     sidebarLogo: '侧边栏 Logo'
-  }
+  },
+  driver: {
+    doneBtnText: '完成',
+    closeBtnText: '关闭',
+    nextBtnText: '下一步',
+    prevBtnText: '上一步',
+  },
+  lang: {
+    switchLanguageSuccess: '切换语言成功'
+  },
 }

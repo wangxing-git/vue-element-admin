@@ -3,7 +3,7 @@
 export const constantRoutes = [
   {
     path: '/redirect',
-    component: 'layout/Layout',
+    component: 'Layout',
     hidden: true,
     children: [
       {
@@ -33,8 +33,8 @@ export const constantRoutes = [
     hidden: true
   },
   {
-    path: '',
-    component: 'layout/Layout',
+    path: '/',
+    component: 'Layout',
     redirect: 'dashboard',
     children: [
       {
@@ -47,7 +47,7 @@ export const constantRoutes = [
   },
   {
     path: '/documentation',
-    component: 'layout/Layout',
+    component: 'Layout',
     children: [
       {
         path: 'index',
@@ -59,7 +59,7 @@ export const constantRoutes = [
   },
   {
     path: '/guide',
-    component: 'layout/Layout',
+    component: 'Layout',
     redirect: '/guide/index',
     children: [
       {
@@ -75,7 +75,7 @@ export const constantRoutes = [
 export const asyncRoutes = [
   {
     path: '/permission',
-    component: 'layout/Layout',
+    component: 'Layout',
     // redirect: '/permission/index',
     redirect: 'noRedirect',
     alwaysShow: true,
@@ -116,7 +116,7 @@ export const asyncRoutes = [
 
   {
     path: '/icon',
-    component: 'layout/Layout',
+    component: 'Layout',
     children: [
       {
         path: 'index',
@@ -129,7 +129,7 @@ export const asyncRoutes = [
 
   {
     path: '/components',
-    component: 'layout/Layout',
+    component: 'Layout',
     redirect: 'noRedirect',
     name: 'ComponentDemo',
     meta: {
@@ -225,7 +225,7 @@ export const asyncRoutes = [
   },
   {
     path: '/charts',
-    component: 'layout/Layout',
+    component: 'Layout',
     redirect: 'noRedirect',
     name: 'Charts',
     meta: {
@@ -255,7 +255,7 @@ export const asyncRoutes = [
   },
   {
     path: '/nested',
-    component: 'layout/Layout',
+    component: 'Layout',
     redirect: '/nested/menu1/menu1-1',
     name: 'Nested',
     meta: {
@@ -316,7 +316,7 @@ export const asyncRoutes = [
 
   {
     path: '/example',
-    component: 'layout/Layout',
+    component: 'Layout',
     redirect: '/example/list',
     name: 'Example',
     meta: {
@@ -348,7 +348,7 @@ export const asyncRoutes = [
 
   {
     path: '/tab',
-    component: 'layout/Layout',
+    component: 'Layout',
     children: [
       {
         path: 'index',
@@ -361,7 +361,7 @@ export const asyncRoutes = [
 
   {
     path: '/error',
-    component: 'layout/Layout',
+    component: 'Layout',
     redirect: 'noRedirect',
     name: 'ErrorPages',
     meta: {
@@ -386,7 +386,7 @@ export const asyncRoutes = [
 
   {
     path: '/error-log',
-    component: 'layout/Layout',
+    component: 'Layout',
     redirect: 'noRedirect',
     children: [
       {
@@ -400,7 +400,7 @@ export const asyncRoutes = [
 
   {
     path: '/excel',
-    component: 'layout/Layout',
+    component: 'Layout',
     redirect: '/excel/export-excel',
     name: 'Excel',
     meta: {
@@ -437,7 +437,7 @@ export const asyncRoutes = [
 
   {
     path: '/zip',
-    component: 'layout/Layout',
+    component: 'Layout',
     redirect: '/zip/download',
     alwaysShow: true,
     meta: { title: 'zip', icon: 'zip' },
@@ -453,7 +453,7 @@ export const asyncRoutes = [
 
   {
     path: '/pdf',
-    component: 'layout/Layout',
+    component: 'Layout',
     redirect: '/pdf/index',
     children: [
       {
@@ -472,7 +472,7 @@ export const asyncRoutes = [
 
   {
     path: '/theme',
-    component: 'layout/Layout',
+    component: 'Layout',
     redirect: 'noRedirect',
     children: [
       {
@@ -486,7 +486,7 @@ export const asyncRoutes = [
 
   {
     path: '/clipboard',
-    component: 'layout/Layout',
+    component: 'Layout',
     redirect: 'noRedirect',
     children: [
       {
@@ -500,7 +500,7 @@ export const asyncRoutes = [
 
   {
     path: '/i18n',
-    component: 'layout/Layout',
+    component: 'Layout',
     children: [
       {
         path: 'index',
@@ -512,8 +512,8 @@ export const asyncRoutes = [
   },
 
   {
-    path: 'external-link',
-    component: 'layout/Layout',
+    path: '/external-link',
+    component: 'Layout',
     children: [
       {
         path: 'https://github.com/PanJiaChen/vue-element-admin',

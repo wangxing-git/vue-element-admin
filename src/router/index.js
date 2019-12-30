@@ -400,9 +400,9 @@ export const asyncRoutes = [
 
 const createRouter = () => new Router({
   base: process.env.BASE_URL,
-  mode: 'history', // require service support
+  mode: process.env.router.mode, // require service support
   scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes,
+  routes: [...constantRoutes, ...asyncRoutes],
 })
 
 const router = createRouter()
@@ -411,6 +411,7 @@ const router = createRouter()
 export function resetRouter() {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher // reset router
+  router.options = newRouter.options
 }
 
 export default router

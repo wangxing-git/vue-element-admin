@@ -171,5 +171,14 @@ export default {
     tagsView: 'Tags-View 開く',
     fixedHeader: 'Fixed Header',
     sidebarLogo: 'Sidebar Logo'
-  }
+  },
+  driver: {
+    doneBtnText: '完了',
+    closeBtnText: '閉じる',
+    nextBtnText: '次のステップ',
+    prevBtnText: '前のステップ',
+  },
+  lang: {
+    switchLanguageSuccess: '言語が正常に切り替えられました'
+  },
 }

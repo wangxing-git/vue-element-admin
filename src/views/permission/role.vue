@@ -103,7 +103,7 @@ export default {
     async getRoutes() {
       const res = await getRoutes()
       this.serviceRoutes = res.data
-      const routes = this.generateRoutes(res.data)
+      const routes = this.generateRoutes(deepClone(res.data))
       this.routes = this.i18n(routes)
     },
     async getRoles() {
@@ -199,7 +199,6 @@ export default {
     },
     generateTree(routes, basePath = '/', checkedKeys) {
       const res = []
-
       for (const route of routes) {
         const routePath = path.resolve(basePath, route.path)
 
@@ -208,7 +207,7 @@ export default {
           route.children = this.generateTree(route.children, routePath, checkedKeys)
         }
 
-        if (checkedKeys.includes(routePath) || (route.children && route.children.length >= 1)) {
+        if (route.hidden || checkedKeys.includes(routePath) || (route.children && route.children.length >= 1)) {
           res.push(route)
         }
       }
@@ -216,7 +215,6 @@ export default {
     },
     async confirmRole() {
       const isEdit = this.dialogType === 'edit'
-
       const checkedKeys = this.$refs.tree.getCheckedKeys()
       this.role.routes = this.generateTree(deepClone(this.serviceRoutes), '/', checkedKeys)
 

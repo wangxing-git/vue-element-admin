@@ -8,4 +8,8 @@ module.exports = {
   BASE_URL: '/',
   mockXHREnabled: false,
   active: 'development',
+  router: {
+    // 'hash' | 'history' | 'abstract'
+    mode: '"history"'
+  }
 }

@@ -76,10 +76,15 @@ export default [
   {
     url: '/role/[A-Za-z0-9]',
     type: 'put',
-    response: {
-      code: 20000,
-      data: {
-        status: 'success'
+    response: req => {
+      const roleRoutes = req.body
+      const index = roles.findIndex(value => value.key === roleRoutes.key)
+      roles[index] = roleRoutes
+      return {
+        code: 20000,
+        data: {
+          status: 'success'
+        }
       }
     }
   },

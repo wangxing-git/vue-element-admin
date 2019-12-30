@@ -44,9 +44,11 @@
           <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
             <el-dropdown-item>Docs</el-dropdown-item>
           </a>
-          <el-dropdown-item divided>
-            <span style="display:block;" @click="logout">{{ $t('navbar.logOut') }}</span>
-          </el-dropdown-item>
+          <span style="display:block;" @click="logout">
+            <el-dropdown-item divided>
+              {{ $t('navbar.logOut') }}
+            </el-dropdown-item>
+          </span>
         </el-dropdown-menu>
       </el-dropdown>
     </div>

@@ -171,5 +171,14 @@ export default {
     tagsView: 'Open Tags-View',
     fixedHeader: 'Fixed Header',
     sidebarLogo: 'Sidebar Logo'
-  }
+  },
+  driver: {
+    doneBtnText: 'Completa',
+    closeBtnText: 'Cerrar',
+    nextBtnText: 'Paso siguiente',
+    prevBtnText: 'Paso anterior',
+  },
+  lang: {
+    switchLanguageSuccess: 'Idioma cambiado exitosamente'
+  },
 }

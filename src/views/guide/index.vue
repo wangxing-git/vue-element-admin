@@ -23,7 +23,14 @@ export default {
     }
   },
   mounted() {
-    this.driver = new Driver()
+    this.driver = new Driver({
+      allowClose: false, // Whether the click on overlay should close or not
+      overlayClickNext: true, // Whether the click on overlay should move next
+      doneBtnText: this.$i18n.t('driver.doneBtnText'),
+      closeBtnText: this.$i18n.t('driver.closeBtnText'),
+      nextBtnText: this.$i18n.t('driver.nextBtnText'),
+      prevBtnText: this.$i18n.t('driver.prevBtnText'),
+    })
   },
   methods: {
     guide() {
